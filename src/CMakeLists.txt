@@ -72,6 +72,7 @@ SET (SRCS
 	VoronoiMap.cpp
 	WebAdmin.cpp
 	World.cpp
+	BookContent.cpp
 	main.cpp
 )
 
@@ -151,6 +152,7 @@ SET (HDRS
 	VoronoiMap.h
 	WebAdmin.h
 	World.h
+	BookContent.h
 	XMLParser.h
 )
 
