@@ -885,6 +885,44 @@ bool cPluginManager::CallHookPlayerEating(cPlayer & a_Player)
 
 
 
+bool cPluginManager::CallHookPlayerEditedBook(cPlayer & a_Player, cBookContent & a_BookContent, bool a_IsSigned)
+{
+	FIND_HOOK(HOOK_PLAYER_EDITED_BOOK);
+	VERIFY_HOOK;
+
+	for (PluginList::iterator itr = Plugins->second.begin(); itr != Plugins->second.end(); ++itr)
+	{
+		if ((*itr)->OnPlayerEditedBook(a_Player, a_BookContent, a_IsSigned))
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+
+
+
+
+bool cPluginManager::CallHookPlayerEditingBook(cPlayer & a_Player, cBookContent & a_BookContent, bool a_IsSigned)
+{
+	FIND_HOOK(HOOK_PLAYER_EDITING_BOOK);
+	VERIFY_HOOK;
+
+	for (PluginList::iterator itr = Plugins->second.begin(); itr != Plugins->second.end(); ++itr)
+	{
+		if ((*itr)->OnPlayerEditingBook(a_Player, a_BookContent, a_IsSigned))
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+
+
+
+
 bool cPluginManager::CallHookPlayerFoodLevelChange(cPlayer & a_Player, int a_NewFoodLevel)
 {
 	FIND_HOOK(HOOK_PLAYER_FOOD_LEVEL_CHANGE);
@@ -1064,44 +1102,6 @@ bool cPluginManager::CallHookPlayerRightClickingEntity(cPlayer & a_Player, cEnti
 	for (PluginList::iterator itr = Plugins->second.begin(); itr != Plugins->second.end(); ++itr)
 	{
 		if ((*itr)->OnPlayerRightClickingEntity(a_Player, a_Entity))
-		{
-			return true;
-		}
-	}
-	return false;
-}
-
-
-
-
-
-bool cPluginManager::CallHookPlayerEditedBook(cPlayer & a_Player, cBookContent & a_BookContent, bool a_IsSigned)
-{
-	FIND_HOOK(HOOK_PLAYER_EDITED_BOOK);
-	VERIFY_HOOK;
-
-	for (PluginList::iterator itr = Plugins->second.begin(); itr != Plugins->second.end(); ++itr)
-	{
-		if ((*itr)->OnPlayerEditedBook(a_Player, a_BookContent, a_IsSigned))
-		{
-			return true;
-		}
-	}
-	return false;
-}
-
-
-
-
-
-bool cPluginManager::CallHookPlayerEditingBook(cPlayer & a_Player, cBookContent & a_BookContent, bool a_IsSigned)
-{
-	FIND_HOOK(HOOK_PLAYER_EDITING_BOOK);
-	VERIFY_HOOK;
-
-	for (PluginList::iterator itr = Plugins->second.begin(); itr != Plugins->second.end(); ++itr)
-	{
-		if ((*itr)->OnPlayerEditingBook(a_Player, a_BookContent, a_IsSigned))
 		{
 			return true;
 		}
