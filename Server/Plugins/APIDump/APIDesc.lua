@@ -7024,6 +7024,12 @@ This class contains the information for a signed or writeable book: The author, 
 			{
 				constructor =
 				{
+					Returns =
+					{
+						{
+							Type = "cBookContent",
+						},
+					},
 					Notes = "Creates a empty book",
 				},
 				SetAuthor =
@@ -7094,6 +7100,7 @@ This class contains the information for a signed or writeable book: The author, 
 					Params =
 					{
 						{
+							Name = "Pages",
 							Type = "table",
 						},
 					},
